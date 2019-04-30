@@ -1,18 +1,23 @@
-package com.huruwo.xposed;
+package com.huruwo.hposed;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
+import android.app.Application;
+import android.content.Context;
+import android.support.v4.util.ArraySet;
+import android.text.TextUtils;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.huruwo.hposed.utils.LogXUtils;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+
+import static com.huruwo.hposed.HookAppAllMethod.hookClassInfo;
 
 /**
  * @author DX
@@ -24,13 +29,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class MainHookLoader implements IXposedHookLoadPackage {
 
-    String TAG = "HookLoader";
-
-
     @Override
-    public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam loadPackageParam) throws Throwable {
-
+    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
+        new PackageHooker(lpparam);
     }
-
-
 }

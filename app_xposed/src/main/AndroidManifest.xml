@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huruwo.xposed">
+    package="com.huruwo.hposed">
 
     <application>
 
-        <activity android:name=".ui.MainActivity">
+        <activity android:name="com.huruwo.hposed.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!--只要添加下面这句话，可以隐藏应用图标-->
+                <!--只要添加下面这句话，可以隐藏h应用图标-->
                 <!--<data android:host="AuthActivity" android:scheme="com.android.example" />-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -20,7 +20,7 @@
         <!-- 模块描述，显示在xposed模块列表那里第二行 -->
         <meta-data
             android:name="xposeddescription"
-            android:value="抖音Hook" />
+            android:value="hook程序" />
 
         <!-- 最低xposed版本号(lib文件名可知) -->
         <meta-data

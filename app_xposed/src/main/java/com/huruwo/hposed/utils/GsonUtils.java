@@ -1,4 +1,4 @@
-package com.huruwo.xposed.utils;
+package com.huruwo.hposed.utils;
 
 
 import com.google.gson.Gson;

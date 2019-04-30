@@ -1,4 +1,4 @@
-package com.huruwo.xposed;
+package com.huruwo.hposed;
 
 import android.app.Application;
 import android.content.Context;
@@ -31,7 +31,7 @@ public class HookLoader implements IXposedHookLoadPackage {
     /**
      * 当前Xposed模块的包名,方便寻找apk文件
      */
-    private final String modulePackage = "com.huruwo.xposed";
+    private final String modulePackage = "com.huruwo.hposed";
     /**
      * 宿主程序的包名(允许多个),过滤无意义的包名,防止无意义的apk文件加载
      */

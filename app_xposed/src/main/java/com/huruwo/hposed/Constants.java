@@ -1,4 +1,4 @@
-package com.huruwo.xposed;
+package com.huruwo.hposed;
 
 import android.os.Environment;
 
