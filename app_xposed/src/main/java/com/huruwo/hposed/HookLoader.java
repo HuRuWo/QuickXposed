@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
+import com.huruwo.hposed.utils.Constants;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Method;

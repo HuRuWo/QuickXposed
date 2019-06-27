@@ -1,4 +1,4 @@
-package com.huruwo.hposed;
+package com.huruwo.hposed.utils;
 
 import com.huruwo.hposed.utils.LogXUtils;
 
@@ -15,7 +15,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 /**
  * @author liuwan
  * @date 2019/4/30 0030
- * @action
+ * @action hook 全部方法
  **/
 public class PackageHooker {
 

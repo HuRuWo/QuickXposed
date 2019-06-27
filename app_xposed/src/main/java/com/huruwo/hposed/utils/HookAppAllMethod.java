@@ -1,12 +1,10 @@
-package com.huruwo.hposed;
+package com.huruwo.hposed.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.huruwo.hposed.utils.LogXUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,8 +22,11 @@ import de.robv.android.xposed.XC_MethodHook.MethodHookParam;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
-import static com.huruwo.hposed.Constants.FILTER_PKGNAME;
+import static com.huruwo.hposed.utils.Constants.FILTER_PKGNAME;
 
+/**
+ * 这个是赵四的hook所有方法
+ */
 public class HookAppAllMethod {
 
     public static Set<String> methodSignSet = Collections.synchronizedSet(new HashSet<String>());

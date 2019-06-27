@@ -1,4 +1,4 @@
-package com.huruwo.hposed;
+package com.huruwo.hposed.utils;
 
 import android.os.Environment;
 
@@ -9,9 +9,6 @@ import android.os.Environment;
  * @action
  **/
 public class Constants {
-
-
-    public static final String LOG_FILE_PATH = Environment.getExternalStorageDirectory().getPath() + "/Xposed/XLog.txt";
 
     public static final String FILTER_PKGNAME = "com.xingin.xhs";
 

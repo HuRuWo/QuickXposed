@@ -1,23 +1,9 @@
 package com.huruwo.hposed;
 
-import android.app.Application;
-import android.content.Context;
-import android.support.v4.util.ArraySet;
-import android.text.TextUtils;
-
-import com.huruwo.hposed.utils.LogXUtils;
-
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import com.huruwo.hposed.utils.PackageHooker;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
-import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-
-import static com.huruwo.hposed.HookAppAllMethod.hookClassInfo;
 
 /**
  * @author DX
