@@ -1,9 +1,17 @@
 package com.huruwo.hposed;
 
-import com.huruwo.hposed.utils.PackageHooker;
+import android.os.Build;
+import android.util.Log;
+
+import com.huruwo.hposed.utils.LogXUtils;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
+import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+
+import static de.robv.android.xposed.XposedHelpers.findClass;
 
 /**
  * @author DX
@@ -17,6 +25,11 @@ public class MainHookLoader implements IXposedHookLoadPackage {
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        new PackageHooker(lpparam);
+        LogXUtils.e(lpparam.packageName+"我被hook了");
+
+
+
+
+
     }
 }
