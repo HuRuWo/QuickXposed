@@ -3,6 +3,7 @@ package com.huruwo.hposed;
 import android.os.Build;
 import android.util.Log;
 
+import com.huruwo.hposed.app.KsHookMain;
 import com.huruwo.hposed.utils.LogXUtils;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -27,9 +28,9 @@ public class MainHookLoader implements IXposedHookLoadPackage {
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         LogXUtils.e(lpparam.packageName+"我被hook了");
 
-
-
-
+        if(lpparam.packageName.equals("com.smile.gifmaker")){
+            new KsHookMain(lpparam.classLoader).hookAppUi();
+        }
 
     }
 }

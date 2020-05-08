@@ -10,6 +10,6 @@ import android.os.Environment;
  **/
 public class Constants {
 
-    public static final String FILTER_PKGNAME = "com.xingin.xhs";
+    public static final String KUAI_PACKNAME = "com.smile.gifmaker";
 
 }
