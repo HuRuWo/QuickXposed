@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+      android:id="@+id/message_tv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:padding="10dp"
+      android:textColor="#ffffff"
+      android:background="#fa870a"
+      android:layout_margin="10dp"
+      android:text="请先输入ip和端口保存成功后再软重启xposed后点击抖音可以启动服务"/>
+
+    <EditText
+      android:id="@+id/ip_tv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:padding="10dp"
+      android:textColor="#ffffff"
+      android:digits="1234567890."
+      android:background="#fa870a"
+      android:layout_margin="10dp"
+      android:text="请输入ip地址"/>
+    <EditText
+      android:id="@+id/port_tv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:padding="10dp"
+      android:digits="1234567890"
+      android:textColor="#ffffff"
+      android:background="#fa870a"
+      android:layout_margin="10dp"
+      android:text="请输入端口"/>
+
+    <TextView
+      android:id="@+id/save_btn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:padding="10dp"
+      android:textColor="#ffffff"
+      android:background="#fa870a"
+      android:layout_margin="10dp"
+      android:text="保存设置"/>
+
+</LinearLayout>

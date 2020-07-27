@@ -11,5 +11,7 @@ import android.os.Environment;
 public class Constants {
 
     public static final String FILTER_PKGNAME = "com.xingin.xhs";
+    public static String DOU_YIN_PACKAGE_NAME = "com.ss.android.ugc.aweme";
+    public static String KUAISHOU_PACKAGE_NAME = "com.smile.gifmaker";
 
 }

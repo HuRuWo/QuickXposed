@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author liuwan
@@ -21,24 +22,23 @@ public class GsonUtils {
     }
 
     public static <T> T fromJson(String json, Type type) {
-        try {
-            return gson.fromJson(json, type);
-        } catch (Exception e) {
-            LogXUtils.e("JSON异常" + e.getMessage(), true);
-            return null;
-        }
+        return gson.fromJson(json, type);
     }
 
-    public static <T> List<T> listFromJson(String json, Type type) {
+    public static <T> List<T> listFromJson(String json) {
 
-        try {
-            List<T> lists = gson.fromJson(json, new TypeToken<List<Type>>() {
-            }.getType());
+        List<T> lists = gson.fromJson(json, new TypeToken<List<Type>>() {
+        }.getType());
 
-            return lists;
-        } catch (Exception e) {
-            LogXUtils.e("JSON异常" + e.getMessage(), true);
-            return null;
-        }
+        return lists;
+
+    }
+
+    public static <K, V> Map<K, V> mapFromJson(String json) {
+
+        Map<K, V> map = gson.fromJson(json, new TypeToken<Map<K, V>>() {
+        }.getType());
+        return map;
+
     }
 }
