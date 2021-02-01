@@ -4,12 +4,7 @@ import android.util.Log;
 
 import org.apache.mina.core.session.IoSession;
 
-/**
- * Description:
- * User: chenzheng
- * Date: 2016/12/9 0009
- * Time: 17:50
- */
+
 public class SessionManager {
 
     private static SessionManager mInstance=null;
