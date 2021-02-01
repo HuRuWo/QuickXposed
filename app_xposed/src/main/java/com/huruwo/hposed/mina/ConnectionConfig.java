@@ -2,12 +2,7 @@ package com.huruwo.hposed.mina;
 
 import android.content.Context;
 
-/**
- * Description:构建者模式
- * User: chenzheng
- * Date: 2016/12/9 0009
- * Time: 16:37
- */
+
 public class ConnectionConfig {
 
     private Context context;

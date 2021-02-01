@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,13 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.robv.android.xposed.XSharedPreferences;
-import de.robv.android.xposed.XposedHelpers;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
-import static android.view.View.VISIBLE;
 import static android.widget.LinearLayout.VERTICAL;
 
 
@@ -33,15 +26,15 @@ import static android.widget.LinearLayout.VERTICAL;
  * @date 2019/11/18 0018
  * @action
  **/
-public class KSSekiroMainUi {
+public class AppMainUi {
 
     private boolean isResit = false;
 
-    private static Handler KSHandler;
+    private static Handler handler;
 
     private ClassLoader classLoader;
 
-    public KSSekiroMainUi(ClassLoader classLoader) {
+    public AppMainUi(ClassLoader classLoader) {
         this.classLoader = classLoader;
     }
 
@@ -65,8 +58,6 @@ public class KSSekiroMainUi {
             @Override
             public void onClick(View v) {
 
-                //        Map<String, String> a2 = new C37148d(context, i).mo69708a(z, mVar);
-
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -78,7 +69,7 @@ public class KSSekiroMainUi {
             }
         });
 
-        KSHandler = new Handler() {
+        handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
@@ -94,26 +85,8 @@ public class KSSekiroMainUi {
             String host = ipport.getString("host", "0.0.0.0");
             Integer port = Integer.valueOf(ipport.getString("port", "9228"));
             LogXUtils.e(" host 和端口是" + host + ":"+ port);
-            Map<String, Class<?>> signMap = new HashMap<>();
-
-            Class<?> kwaiAppObject = cl.loadClass("com.yxcorp.gifshow.KwaiApp");
-            Class<?> cqObject = cl.loadClass("com.yxcorp.gifshow.util.cq");
-            Class<?> abfObject = cl.loadClass("com.kuaishou.dfp.a.b.f");
-            Class<?> messageNanoObject = cl.loadClass("com.google.protobuf.nano.MessageNano");
-            Class<?> ksdkInnerObject = cl.loadClass("com.kuaishou.android.security.KSdkInner");
-            Class<?> dfpaaaObject = cl.loadClass("com.kuaishou.dfp.a.a.a");
-
-
-            signMap.put("kwaiAppObject",kwaiAppObject);
-            signMap.put("cqObject",cqObject);
-            signMap.put("abfObject",abfObject);
-            signMap.put("messageNanoObject",messageNanoObject);
-            signMap.put("ksdkInnerObject",ksdkInnerObject);
-            signMap.put("dfpaaaObject",dfpaaaObject);
-
-
             MinaHookService minaHookService = new MinaHookService();
-            minaHookService.onCreate(activity,  host,  port, cl , signMap);
+            minaHookService.onCreate(activity,  host,  port, cl , loadClass(cl));
             LogXUtils.e("mina hookService signObject 启动成功");
         }
     }
@@ -131,6 +104,13 @@ public class KSSekiroMainUi {
 
 
 
+   private Map<String, Class<?>> loadClass(ClassLoader cl) throws ClassNotFoundException {
+       Map<String, Class<?>> signMap = new HashMap<>();
+       // 内存中直接提取要用的类 在最后调用的时候可以直接拿到
+       Class<?> testObj = cl.loadClass("testObj");
+       signMap.put("testObj",testObj);
+       return signMap;
+   }
 
 
 

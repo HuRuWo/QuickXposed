@@ -27,12 +27,7 @@ import de.robv.android.xposed.XposedHelpers;
 
 import static com.huruwo.hposed.utils.GsonUtils.fromJson;
 
-/**
- * Description:
- * User: chenzheng
- * Date: 2016/12/9 0009
- * Time: 16:21
- */
+
 public class ConnectionManager {
 
     private ConnectionConfig mConfig;
@@ -142,11 +137,8 @@ public class ConnectionManager {
                 MessageBean messageBean = fromJson(msg, MessageBean.class);
                 String messData = messageBean.getData();
                 if (messageBean.getAction().equals("call_sig3")) {
-                   res= HookMethod.getSign3(signMap,messData);
-                } else if (messageBean.getAction().equals("call_egid")) {
-                    res =   HookMethod.getDeviceInfo(signMap,messData);
+                   res= HookMethod.getSign(signMap,messData);
                 }
-
 
             } catch (Exception e) {
                 res = e.getMessage();

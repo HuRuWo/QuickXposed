@@ -8,12 +8,7 @@ import com.huruwo.hposed.utils.LogXUtils;
 
 import java.util.Map;
 
-/**
- * Description:
- * User: chenzheng
- * Date: 2016/12/9 0009
- * Time: 17:17
- */
+
 public class MinaHookService{
 
 
