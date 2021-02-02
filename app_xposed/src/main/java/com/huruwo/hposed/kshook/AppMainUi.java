@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.huruwo.hposed.mina.MinaHookService;
 import com.huruwo.hposed.utils.LogXUtils;
 
 import java.util.HashMap;
@@ -85,8 +84,7 @@ public class AppMainUi {
             String host = ipport.getString("host", "0.0.0.0");
             Integer port = Integer.valueOf(ipport.getString("port", "9228"));
             LogXUtils.e(" host 和端口是" + host + ":"+ port);
-            MinaHookService minaHookService = new MinaHookService();
-            minaHookService.onCreate(activity,  host,  port, cl , loadClass(cl));
+
             LogXUtils.e("mina hookService signObject 启动成功");
         }
     }

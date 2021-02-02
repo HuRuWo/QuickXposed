@@ -15,7 +15,7 @@ import de.robv.android.xposed.XposedHelpers;
  * @date 2019/4/9 0009
  * @action
  **/
-public class XposedPrintUtils {
+public class PrintUtils {
 
     public static String printFieldName(Object object) {
 
@@ -82,7 +82,7 @@ public class XposedPrintUtils {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("\n方法["+class_method+"]\n");
             if(param.args!=null&&param.args.length>0) {
-                stringBuffer.append("参数["+XposedPrintUtils.printArgs(param)+"]\n");
+                stringBuffer.append("参数["+ PrintUtils.printArgs(param)+"]\n");
             }
             if(ex) {
                 String bt = Log.getStackTraceString(new Exception());

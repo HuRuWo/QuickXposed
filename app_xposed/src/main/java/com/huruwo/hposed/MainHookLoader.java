@@ -22,8 +22,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 public class MainHookLoader implements IXposedHookLoadPackage {
 
     public static String MAIN_APP = "com.huruwo.hposed";
-    private static String APP_NAME = "";
-    private static final String MAIN_CLASS_NAME = "";
+    private static String APP_NAME = "com.ss.android.ugc.aweme";
+    private static final String MAIN_CLASS_NAME = "com.ss.android.ugc.aweme.main.MainActivity";
 
 
     @Override
