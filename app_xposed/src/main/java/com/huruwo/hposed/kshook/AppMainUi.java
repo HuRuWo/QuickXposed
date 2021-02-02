@@ -11,9 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huruwo.hposed.utils.LogXUtils;
+import com.yanzhenjie.andserver.AndServer;
+import com.yanzhenjie.andserver.Server;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import de.robv.android.xposed.XSharedPreferences;
 
@@ -60,6 +63,8 @@ public class AppMainUi {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+
+
                     }
                 }).start();
 
@@ -76,17 +81,7 @@ public class AppMainUi {
             }
         };
 
-        final ClassLoader cl = activity.getClassLoader();
-        //从客户端配中读取 远程服务socket服务器的ip和端口
-        XSharedPreferences ipport = new XSharedPreferences("com.huruwo.hposed", "ipport");
-        synchronized (this){
-            ipport.makeWorldReadable();
-            String host = ipport.getString("host", "0.0.0.0");
-            Integer port = Integer.valueOf(ipport.getString("port", "9228"));
-            LogXUtils.e(" host 和端口是" + host + ":"+ port);
 
-            LogXUtils.e("mina hookService signObject 启动成功");
-        }
     }
 
     private TextView getTopText(Activity activity) {
@@ -99,18 +94,5 @@ public class AppMainUi {
         imageView.setLayoutParams(im_layoutParams);
         return imageView;
     }
-
-
-
-   private Map<String, Class<?>> loadClass(ClassLoader cl) throws ClassNotFoundException {
-       Map<String, Class<?>> signMap = new HashMap<>();
-       // 内存中直接提取要用的类 在最后调用的时候可以直接拿到
-       Class<?> testObj = cl.loadClass("testObj");
-       signMap.put("testObj",testObj);
-       return signMap;
-   }
-
-
-
 
 }

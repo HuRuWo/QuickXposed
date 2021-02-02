@@ -40,6 +40,4 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.virjar:sekiro-api:1.0.1'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation files('libs/mina-core-2.0.16.jar')
-    implementation files('libs/slf4j-android-1.6.1-RC1.jar')
 }
