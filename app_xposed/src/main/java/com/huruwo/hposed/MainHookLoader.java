@@ -3,7 +3,7 @@ package com.huruwo.hposed;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.huruwo.hposed.kshook.AppMainUi;
+import com.huruwo.hposed.ui.AppMainUi;
 import com.huruwo.hposed.utils.LogXUtils;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;

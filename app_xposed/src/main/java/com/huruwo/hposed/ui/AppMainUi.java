@@ -1,9 +1,10 @@
-package com.huruwo.hposed.kshook;
+package com.huruwo.hposed.ui;
 
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,12 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.huruwo.hposed.utils.LogXUtils;
-import com.yanzhenjie.andserver.AndServer;
-import com.yanzhenjie.andserver.Server;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import com.virjar.sekiro.api.SekiroClient;
+import com.virjar.sekiro.api.SekiroRequest;
+import com.virjar.sekiro.api.SekiroRequestHandler;
+import com.virjar.sekiro.api.SekiroResponse;
 
 import de.robv.android.xposed.XSharedPreferences;
 
@@ -65,9 +64,25 @@ public class AppMainUi {
                     public void run() {
 
 
+                        XSharedPreferences ipport = new XSharedPreferences("com.huruwo.hposed", "ipport");
+                        synchronized (this) {
+                            ipport.makeWorldReadable();
+                            String host = ipport.getString("host", "0.0.0.0");
+                            Integer port = Integer.valueOf(ipport.getString("port", "5600"));
+                            String client = ipport.getString("clientid", Settings.Secure.getString(activity.getContentResolver(), "android_id"));
+                            SekiroClient sekiroClient = SekiroClient.start(host, port, client);
+                            sekiroClient.registerHandler("test", new SekiroRequestHandler() {
+                                @Override
+                                public void handleRequest(SekiroRequest sekiroRequest, SekiroResponse sekiroResponse) {
+                                    sekiroResponse.success("测试测试");
+                                }
+                            });
+                            LogXUtils.e(" host 和端口是" + host + ":" + port);
+                        }
+
+
                     }
                 }).start();
-
 
 
             }

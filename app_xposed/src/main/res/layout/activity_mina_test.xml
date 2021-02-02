@@ -13,32 +13,45 @@
       android:gravity="center"
       android:padding="10dp"
       android:textColor="#ffffff"
-      android:background="#fa870a"
+      android:background="#000"
       android:layout_margin="10dp"
       android:text="请先输入ip和端口保存成功后再软重启xposed后点击抖音可以启动服务"/>
 
     <EditText
-      android:id="@+id/ip_tv"
+      android:id="@+id/ed_host"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:gravity="center"
       android:padding="10dp"
       android:textColor="#ffffff"
       android:digits="1234567890."
-      android:background="#fa870a"
+      android:background="#000"
       android:layout_margin="10dp"
-      android:text="请输入ip地址"/>
+      android:hint="请输入ip地址"/>
+
     <EditText
-      android:id="@+id/port_tv"
+      android:id="@+id/ed_port"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:gravity="center"
       android:padding="10dp"
       android:digits="1234567890"
       android:textColor="#ffffff"
-      android:background="#fa870a"
+      android:background="#000"
       android:layout_margin="10dp"
-      android:text="请输入端口"/>
+      android:hint="请输入端口"/>
+
+    <EditText
+        android:id="@+id/ed_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:digits="1234567890"
+        android:textColor="#ffffff"
+        android:background="#000"
+        android:layout_margin="10dp"
+        android:hint="请输入端口"/>
 
     <TextView
       android:id="@+id/save_btn"
@@ -47,7 +60,7 @@
       android:gravity="center"
       android:padding="10dp"
       android:textColor="#ffffff"
-      android:background="#fa870a"
+      android:background="#000"
       android:layout_margin="10dp"
       android:text="保存设置"/>
 
