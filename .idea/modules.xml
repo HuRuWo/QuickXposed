@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlyXposed.iml" filepath="$PROJECT_DIR$/.idea/modules/FlyXposed.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app_xposed/FlyXposed.app_xposed.iml" filepath="$PROJECT_DIR$/.idea/modules/app_xposed/FlyXposed.app_xposed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlyXposed.iml" filepath="$PROJECT_DIR$/.idea/modules/FlyXposed.iml" group="FlyXposed" />
+      <module fileurl="file://$PROJECT_DIR$/FlyXposed/FlyXposed-FlyXposed.iml" filepath="$PROJECT_DIR$/FlyXposed/FlyXposed-FlyXposed.iml" group="FlyXposed/FlyXposed" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="FlyXposed/app" />
     </modules>
   </component>
 </project>
