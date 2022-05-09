@@ -9,5 +9,6 @@ import android.os.Environment;
  * @action
  **/
 public class Constants {
-
+    public static String APP_NAME = "com.xxx.test";
+    public static final String MAIN_CLASS_NAME = "com.xxx.test.MainActivity";
 }

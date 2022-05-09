@@ -1,7 +1,8 @@
-package com.huruwo.hposed.ui;
+package com.huruwo.hposed.hook;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
@@ -17,9 +18,13 @@ import com.virjar.sekiro.api.SekiroRequest;
 import com.virjar.sekiro.api.SekiroRequestHandler;
 import com.virjar.sekiro.api.SekiroResponse;
 
+import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XSharedPreferences;
+import de.robv.android.xposed.XposedHelpers;
+import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 import static android.widget.LinearLayout.VERTICAL;
+import static com.huruwo.hposed.utils.Constants.MAIN_CLASS_NAME;
 
 
 /**
@@ -27,7 +32,7 @@ import static android.widget.LinearLayout.VERTICAL;
  * @date 2019/11/18 0018
  * @action
  **/
-public class AppMainUi {
+public class HookMainUi {
 
     private boolean isResit = false;
 
@@ -35,8 +40,28 @@ public class AppMainUi {
 
     private ClassLoader classLoader;
 
-    public AppMainUi(ClassLoader classLoader) {
+    public HookMainUi(ClassLoader classLoader) {
         this.classLoader = classLoader;
+    }
+
+    private void hookAppMainUi(final XC_LoadPackage.LoadPackageParam loadPackageParam) {
+        Class aClass = XposedHelpers.findClass("android.app.Activity", loadPackageParam.classLoader);
+        if (aClass != null) {
+            XposedHelpers.findAndHookMethod(aClass, "onCreate", Bundle.class, new XC_MethodHook() {
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+                    Activity activity = (Activity) param.thisObject;
+                    String class_name = activity.getClass().getName();
+                    LogXUtils.e("界面包名" + class_name + "---");
+                    if (MAIN_CLASS_NAME.equals(class_name)) {
+                        new HookMainUi(loadPackageParam.classLoader).UI(activity);
+                    }
+                }
+            });
+        } else {
+            LogXUtils.e("Class为null", true);
+        }
     }
 
     public void UI(final Activity activity) throws ClassNotFoundException {

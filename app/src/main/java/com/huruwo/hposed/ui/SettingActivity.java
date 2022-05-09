@@ -17,9 +17,7 @@ import com.huruwo.hposed.R;
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SharedPreferences ipport;
-
     private TextView save_btn;
-
     private EditText ip_tv, port_tv, ed_client;
 
     @Override
@@ -56,7 +54,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.save_btn:
-                Log.i("douyin", "输入了ip和port");
+                Log.i("SettingActivity", "输入了ip和port");
                 String host = ip_tv.getText().toString();
                 Integer port = Integer.valueOf(port_tv.getText().toString());
                 String client = ed_client.getText().toString();
@@ -78,8 +76,5 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     protected void onDestroy() {
         super.onDestroy();
     }
-
-
-
 
 }
